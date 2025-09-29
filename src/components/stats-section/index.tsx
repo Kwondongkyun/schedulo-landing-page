@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function StatsSection() {
   const [isClient, setIsClient] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const [animatedStats, setAnimatedStats] = useState([
     { number: 0, target: 98, suffix: "%" },
     { number: 0, target: 75, suffix: "%" },
@@ -35,7 +37,32 @@ export function StatsSection() {
   }, []);
 
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient || !sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // 30%가 보이면 애니메이션 시작
+        rootMargin: "0px 0px -100px 0px", // 조금 더 올라와야 시작
+      }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, [isClient, isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    // 애니메이션 시작 전에 숫자를 0으로 리셋
+    setAnimatedStats((prev) => prev.map((stat) => ({ ...stat, number: 0 })));
 
     const timers = animatedStats.map((stat, index) => {
       let current = 0;
@@ -56,10 +83,10 @@ export function StatsSection() {
     });
 
     return () => timers.forEach((timer) => clearInterval(timer));
-  }, [isClient]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isVisible]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section className="py-20 px-4 overflow-hidden">
+    <section ref={sectionRef} className="py-20 px-4 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <p className="text-3xl lg:text-4xl font-bold text-balance">
