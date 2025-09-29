@@ -1,4 +1,5 @@
 import { ScheduloLogo } from "@/components/schedulo-logo";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -73,10 +74,41 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-border mt-12 pt-8 text-center">
-          <div className="text-sm text-muted-foreground">
+        <div className="border-t border-border mt-12 pt-8">
+          <div className="text-sm text-muted-foreground text-center">
             © 2025 Schedulo Team. 캡스톤 디자인 프로젝트로 개발되었습니다.
           </div>
+        </div>
+      </div>
+
+      {/* Character Images - Fixed to bottom right of screen */}
+      <div className="fixed bottom-4 right-4 flex items-center gap-2 z-50">
+        <div className="relative group">
+          <Image
+            src="/characters/onesung1.png"
+            alt="원숭이 1"
+            width={25}
+            height={25}
+            className="rounded-full transition-transform hover:scale-110 hover:rotate-12 cursor-pointer shadow-lg bg-white/80 backdrop-blur-sm"
+          />
+        </div>
+        <div className="relative group">
+          <Image
+            src="/characters/onesung2.png"
+            alt="원숭이 2"
+            width={25}
+            height={25}
+            className="rounded-full transition-transform hover:scale-110 hover:rotate-12 cursor-pointer shadow-lg bg-white/80 backdrop-blur-sm"
+          />
+        </div>
+        <div className="relative group">
+          <Image
+            src="/characters/sasum.png"
+            alt="사슴이"
+            width={25}
+            height={25}
+            className="rounded-full transition-transform hover:scale-110 hover:rotate-12 cursor-pointer shadow-lg bg-white/80 backdrop-blur-sm"
+          />
         </div>
       </div>
     </footer>
