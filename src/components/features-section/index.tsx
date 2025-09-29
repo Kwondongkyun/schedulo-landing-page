@@ -33,8 +33,9 @@ const features = [
   },
   {
     icon: BarChart3,
-    title: "학습 분석",
-    description: "학습 패턴을 분석하여 더 효과적인 공부 방법을 제안합니다.",
+    title: "학습 통계",
+    description:
+      "학습 통계를 시각화하여 자신의 학습 패턴을 파악할 수 있습니다.",
   },
 ];
 
