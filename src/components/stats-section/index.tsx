@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function StatsSection() {
+  const [isClient, setIsClient] = useState(false);
   const [animatedStats, setAnimatedStats] = useState([
     { number: 0, target: 98, suffix: "%" },
     { number: 0, target: 75, suffix: "%" },
@@ -30,6 +31,12 @@ export function StatsSection() {
   ];
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const timers = animatedStats.map((stat, index) => {
       let current = 0;
       const increment = stat.target / 50;
@@ -49,7 +56,7 @@ export function StatsSection() {
     });
 
     return () => timers.forEach((timer) => clearInterval(timer));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isClient]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className="py-20 px-4 overflow-hidden">
@@ -77,7 +84,7 @@ export function StatsSection() {
               }}
             >
               <div className="text-4xl lg:text-5xl font-bold text-primary animate-pulse">
-                {animatedStats[index].number}
+                {isClient ? animatedStats[index].number : 0}
                 {animatedStats[index].suffix}
               </div>
               <div className="font-semibold text-lg">{stat.label}</div>
