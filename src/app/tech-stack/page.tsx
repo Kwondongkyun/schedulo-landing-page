@@ -336,17 +336,17 @@ export default function TechStack() {
         <div className="container mx-auto max-w-4xl text-center">
           <p className="text-3xl font-bold mb-12">프로젝트 정보</p>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 border-l-4 border-l-blue-500/30 hover:border-l-blue-500 transition-all duration-300">
+            <Card className="px-4 py-6 border-l-4 border-l-blue-500/30 hover:border-l-blue-500 transition-all duration-300">
               <div className="space-y-3">
-                <p className="font-bold text-xl text-blue-600">개발 기간</p>
+                <p className="font-bold text-xl">개발 기간</p>
                 <p className="text-muted-foreground font-medium">
                   2024년 9월 ~ 2025년 1월
                 </p>
               </div>
             </Card>
-            <Card className="p-6 border-l-4 border-l-purple-500/30 hover:border-l-purple-500 transition-all duration-300">
+            <Card className="px-4 py-6 border-l-4 border-l-purple-500/30 hover:border-l-purple-500 transition-all duration-300">
               <div className="space-y-3">
-                <p className="font-bold text-xl text-purple-600">팀 구성</p>
+                <p className="font-bold text-xl">팀 구성</p>
                 <p className="text-muted-foreground font-medium">
                   6명 (FE 3명, BE 2명, Design 1명)
                 </p>
@@ -354,9 +354,7 @@ export default function TechStack() {
             </Card>
             <Card className="p-6 border-l-4 border-l-indigo-500/30 hover:border-l-indigo-500 transition-all duration-300">
               <div className="space-y-3">
-                <p className="font-bold text-xl text-indigo-600">
-                  프로젝트 유형
-                </p>
+                <p className="font-bold text-xl">프로젝트 유형</p>
                 <p className="text-muted-foreground font-medium">
                   캡스톤 디자인 프로젝트
                 </p>

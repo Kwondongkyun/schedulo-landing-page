@@ -1,8 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Calendar, Clock, BookOpen, Zap } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -56,11 +54,6 @@ export function HeroSection() {
           {/* Left side - Text content */}
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium animate-fade-in-up delay-100">
-                <Zap className="w-4 h-4 animate-pulse" />
-                스마트한 일정 관리 서비스
-              </div>
-
               <p className="text-4xl lg:text-6xl font-bold text-balance leading-tight animate-fade-in-up delay-200">
                 대학생을 위한
                 <br />

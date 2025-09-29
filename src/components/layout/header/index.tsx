@@ -34,7 +34,7 @@ export function Header() {
 
         <div className="flex items-center gap-3 animate-fade-in-right delay-300">
           <Button
-            size="sm"
+            size="lg"
             className="bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
             asChild
           >
